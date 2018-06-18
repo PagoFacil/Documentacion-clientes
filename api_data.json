@@ -1,23 +1,128 @@
 [
   {
+    "type": "get",
+    "url": "cash/charge",
+    "title": "2.- Consultar la información de una Orden de Pago",
+    "group": "PAGOS_EN_EFECTIVO",
+    "sampleRequest": [
+      {
+        "url": "https://sandbox.pagofacil.tech/cash/charge"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "100",
+            "optional": false,
+            "field": "branch_key",
+            "description": "<p>Api key de la sucursal</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "100",
+            "optional": false,
+            "field": "user_key",
+            "description": "<p>Api key usuario</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "45",
+            "optional": false,
+            "field": "order_id",
+            "description": "<p>Dato único para identificación de la orden de compra</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./cash/Validations/Charge.php",
+    "groupTitle": "PAGOS_EN_EFECTIVO",
+    "name": "GetCashCharge"
+  },
+  {
     "type": "post",
-    "url": "/cash/charge",
+    "url": "cash/charge",
     "title": "1.- Realizar una Orden de Pago",
     "description": "<p>Esta peticion permite permite generar una orden de pago en efectivo para que el cliente proceda a realizar el pago en las tiendas de conveniencia</p>",
     "group": "PAGOS_EN_EFECTIVO",
     "sampleRequest": [
       {
-        "url": "https://sandbox.pagofacil.techquicklinks"
+        "url": "https://sandbox.pagofacil.tech/cash/charge"
       }
     ],
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": " HTTP/1.1 200 OK\n{\n\"error\":\"0\",\n\"message\":\"success\",\n\"charge\":\n     {\n     \"reference\":\"S-PFCPE2692S2720I3651\",\n     \"customer_order\":\"75464\",\n     \"amount\":\"1999\",\n     \"convenience_store\":\"OXXO\",\n     \"store_fixed_rate\":\"9.00\",\n     \"store_schedule\":\"8:00 - 20:00\",\n     \"store_image\":\"https:\\/\\/stapi.pagofacil.net\\/images\\/cashpayment\\/OXXO.png\",\n     \"bank_account_number\":\"xx-xxxxxxxx-x\",\n     \"bank\":\"Banco de pruebas\",\n     \"created_at\":\"\",\n     \"expiration_date\":\"2018-06-20 12:6:00\",\n     \"status\":\"pending\",\n     \"reference_number\":\"\"\n     }\n}",
-          "type": "json"
-        }
-      ]
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "100",
+            "optional": false,
+            "field": "branch_key",
+            "description": "<p>Api key de la sucursal</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "100",
+            "optional": false,
+            "field": "user_key",
+            "description": "<p>Api key usuario</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "45",
+            "optional": false,
+            "field": "order_id",
+            "description": "<p>Dato único para identificación de la orden de compra</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "100",
+            "optional": false,
+            "field": "product",
+            "description": "<p>Descripción o nombre del producto</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Decimal",
+            "optional": false,
+            "field": "amount",
+            "description": "<p>Monto a pagar</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "30",
+            "optional": false,
+            "field": "store_code",
+            "description": "<p>Código de la tienda de conveniencia</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "100",
+            "optional": false,
+            "field": "customer",
+            "description": "<p>Nombre del comprador</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "100",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Correo electronico del comprador</p>"
+          }
+        ]
+      }
     },
     "version": "0.0.0",
     "filename": "./cash/Validations/Charge.php",
