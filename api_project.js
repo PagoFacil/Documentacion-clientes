@@ -4,7 +4,7 @@ define({
   "description": "Nuestra API te permite procesar pagos a través de un servicio web manteniendo a tus clientes en tu sitio web mientras la transacción se ejecuta en segundo plano.",
   "title": "Documentación Apis - Formas de Pago",
   "url": "https://sandbox.pagofacil.tech/",
-  "sampleUrl": "https://sandbox.pagofacil.tech/",
+  "sampleUrl": "http://pf-api.local/",
   "order": [
     "PagoEfectivo"
   ],
@@ -16,7 +16,7 @@ define({
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2018-06-18T17:56:45.101Z",
+    "time": "2018-06-19T20:44:01.804Z",
     "url": "http://apidocjs.com",
     "version": "0.17.6"
   }

@@ -6,7 +6,7 @@ define({ "api": [
     "group": "EFECTIVO",
     "sampleRequest": [
       {
-        "url": "https://sandbox.pagofacil.tech/cash/charge"
+        "url": "http://pf-api.local/cash/charge"
       }
     ],
     "parameter": {
@@ -49,7 +49,7 @@ define({ "api": [
     "group": "EFECTIVO",
     "sampleRequest": [
       {
-        "url": "https://sandbox.pagofacil.tech/cash/charges"
+        "url": "http://pf-api.local/cash/charges"
       }
     ],
     "parameter": {
@@ -109,7 +109,7 @@ define({ "api": [
     "group": "EFECTIVO",
     "sampleRequest": [
       {
-        "url": "https://sandbox.pagofacil.tech/cash/charge"
+        "url": "http://pf-api.local/cash/charge"
       }
     ],
     "parameter": {
