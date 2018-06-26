@@ -1,33 +1,5 @@
 [
   {
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "optional": false,
-            "field": "varname1",
-            "description": "<p>No type.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "varname2",
-            "description": "<p>With type.</p>"
-          }
-        ]
-      }
-    },
-    "type": "",
-    "url": "",
-    "version": "0.0.0",
-    "filename": "./Documentacion-clientes/main.js",
-    "group": "C__virtuals_api_Documentacion_clientes_main_js",
-    "groupTitle": "C__virtuals_api_Documentacion_clientes_main_js",
-    "name": ""
-  },
-  {
     "type": "get",
     "url": "cash/charge",
     "title": "2.- Consultar la información de una Orden de Pago",
@@ -73,7 +45,7 @@
   {
     "type": "get",
     "url": "cash/charges",
-    "title": "3.- Consultar varias ordenes de compra en a un periodo de tiempo.",
+    "title": "3.- Consultar varias ordenes de compra en a un periodo de tiempo",
     "group": "EFECTIVO",
     "sampleRequest": [
       {
@@ -213,9 +185,333 @@
     "name": "PostCashCharge"
   },
   {
+    "type": "get",
+    "url": "Wsrrecurrentes/index/format/json?",
+    "title": "2. Ver un cargo recurrente",
+    "group": "RECURRENTES",
+    "sampleRequest": [
+      {
+        "url": "http://sandbox.pagofacil.tech/Wsrrecurrentes/index/format/json?"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "method",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "50",
+            "optional": false,
+            "field": "data[idRecurrente]",
+            "description": "<p>El identificador con el que se registró el cargo en PagoFácil.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "30",
+            "optional": false,
+            "field": "data[idSucursal]",
+            "description": "<p>El Apikey de la sucursal a la que le pertenece el cargo recurrente.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./application/controllers/WsrrecurrentesController.php",
+    "groupTitle": "RECURRENTES",
+    "name": "GetWsrrecurrentesIndexFormatJson"
+  },
+  {
+    "type": "post",
+    "url": "Wsrrecurrentes/index/format/json?",
+    "title": "1. Registrar un cobro recurrente",
+    "group": "RECURRENTES",
+    "sampleRequest": [
+      {
+        "url": "http://sandbox.pagofacil.tech/Wsrrecurrentes/index/format/json?"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "method",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "50",
+            "optional": false,
+            "field": "data[nombre]",
+            "description": "<p>Nombre del tarjetahabiente.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "50",
+            "optional": false,
+            "field": "data[apellidos]",
+            "description": "<p>Apellidos del tarjetahabiente.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "15",
+            "optional": false,
+            "field": "data[numeroTarjeta]",
+            "description": "<p>Numero del plástico de la tarjeta de crédito.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "data[cvt]",
+            "description": "<p>Código de verificación de tarjeta.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "9",
+            "optional": false,
+            "field": "data[cp]",
+            "description": "<p>Código postal de la dirección dónde vive el tarjetahabiente.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "data[mesExpiracion]",
+            "description": "<p>El mes en el cual el plástico expira.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "data[anyoExpiracion]",
+            "description": "<p>El año en el cual el plástico expira.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Decimal",
+            "optional": false,
+            "field": "data[monto]",
+            "description": "<p>El monto del cargo a la tarjeta.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "20",
+            "optional": false,
+            "field": "data[idSucursal]",
+            "description": "<p>En caso de contar con varias sucursales, aca se escribe el apikey.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "20",
+            "optional": false,
+            "field": "data[idUsuario]",
+            "description": "<p>Sera el identificador de la empresa ante PagoFácil.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "data[idServicio]",
+            "description": "<p>Este identificador le indica al motor de PagoFácil.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "200",
+            "optional": false,
+            "field": "data[email]",
+            "description": "<p>En este campo vendrá el correo de la persona.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "10",
+            "optional": false,
+            "field": "data[telefono]",
+            "description": "<p>Se debe incluir el teléfono del tarjetahabiente.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "10",
+            "optional": false,
+            "field": "data[celular]",
+            "description": "<p>Campo reservado el numero de celular del tarjetahabiente.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "45",
+            "optional": false,
+            "field": "data[calleyNumero]",
+            "description": "<p>Campo para registro de la calle y numero del tarjetahabiente.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "30",
+            "optional": false,
+            "field": "data[colonia]",
+            "description": "<p>Campo para registrar la colonia dónde vive el tarjetahabiente.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "30",
+            "optional": false,
+            "field": "data[municipio]",
+            "description": "<p>Campo para registrar el municipio dónde vive el tarjetahabiente.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "30",
+            "optional": false,
+            "field": "data[estado]",
+            "description": "<p>Campo para registrar el estado dónde vive el tarjetahabiente.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "50",
+            "optional": false,
+            "field": "data[pais]",
+            "description": "<p>Campo para registrar el pais dónde vive el tarjetahabiente.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "10",
+            "optional": false,
+            "field": "data[idCliente]",
+            "description": "<p>Identificador del contrato donde se autoriza el cargo recurrente.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "data[diaPago]",
+            "description": "<p>Día en el que se estarán realizando los cobros.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Date",
+            "optional": false,
+            "field": "data[fechaIniCobro]",
+            "description": "<p>Fecha a partir de la cuál se empezará a cobrar.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Date",
+            "optional": false,
+            "field": "data[fechaFinCobro]",
+            "description": "<p>Fecha en la cual expira el cobro.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "150",
+            "optional": false,
+            "field": "data[httpUserAgent]",
+            "description": "<p>Identificador de Browser.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "16",
+            "optional": false,
+            "field": "data[ip]",
+            "description": "<p>Ip del servidor el cual envía la petición.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "data[cargo]",
+            "description": "<p>Si se va a registrar un cobro al momento del registro.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./library/WebServices/Recurrentes.php",
+    "groupTitle": "RECURRENTES",
+    "name": "PostWsrrecurrentesIndexFormatJson"
+  },
+  {
+    "type": "get",
+    "url": "Wsrtransaccion/index/format/json?",
+    "title": "2. Verificar Pago por Tarjeta Bancaria",
+    "group": "TARJETA",
+    "sampleRequest": [
+      {
+        "url": "http://sandbox.pagofacil.tech/Wsrtransaccion/index/format/json?"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "20",
+            "optional": false,
+            "field": "method",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "60",
+            "optional": false,
+            "field": "data[idSucursal]",
+            "description": "<p>Identificador de sucursales, en caso de usar varias sucursales.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "60",
+            "optional": false,
+            "field": "data[idUsuario]",
+            "description": "<p>Sera el identificador de la empresa ante PagoFácil.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "size": "60",
+            "optional": false,
+            "field": "data[idPedido]",
+            "description": "<p>Identificador de pedido de la transacción</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "./library/WebServices/Transacciones.php",
+    "groupTitle": "TARJETA",
+    "name": "GetWsrtransaccionIndexFormatJson"
+  },
+  {
     "type": "post",
     "url": "Wsrtransaccion/index/format/json?",
-    "title": "Integración de Pagos por Tarjeta Bancaria",
+    "title": "1. Generación de Pagos por Tarjeta Bancaria",
     "group": "TARJETA",
     "sampleRequest": [
       {
@@ -238,7 +534,7 @@
             "type": "String",
             "size": "50",
             "optional": false,
-            "field": "data[Nombre]",
+            "field": "data[nombre]",
             "description": "<p>En éste campo vendrá el nombre del tarjetahabiente.</p>"
           },
           {
@@ -246,7 +542,7 @@
             "type": "String",
             "size": "50",
             "optional": false,
-            "field": "data[Apellidos]",
+            "field": "data[apellidos]",
             "description": "<p>En éste campo vendrán los apellidos del tarjetahabiente.</p>"
           },
           {
@@ -292,7 +588,7 @@
             "group": "Parameter",
             "type": "Decimal",
             "optional": false,
-            "field": "data[Monto]",
+            "field": "data[monto]",
             "description": "<p>El monto (MXP) del cargo a la tarjeta.</p>"
           },
           {
@@ -323,7 +619,7 @@
             "type": "String",
             "size": "200",
             "optional": false,
-            "field": "data[Email]",
+            "field": "data[email]",
             "description": "<p>En este campo vendrá el correo de la persona a la que se le enviará el correo con el resumen de la transacción.</p>"
           },
           {
@@ -331,7 +627,7 @@
             "type": "String",
             "size": "10",
             "optional": false,
-            "field": "data[Telefono]",
+            "field": "data[telefono]",
             "description": "<p>Se debe incluir el teléfono del tarjetahabiente.</p>"
           },
           {
@@ -339,7 +635,7 @@
             "type": "String",
             "size": "10",
             "optional": false,
-            "field": "data[Celular]",
+            "field": "data[celular]",
             "description": "<p>Campo reservado al número de celular del tarjetahabiente.</p>"
           },
           {
@@ -355,7 +651,7 @@
             "type": "String",
             "size": "30",
             "optional": false,
-            "field": "data[Colonia]",
+            "field": "data[colonia]",
             "description": "<p>Campo para registro de la colonia del tarjetahabiente.</p>"
           },
           {
@@ -371,7 +667,7 @@
             "type": "String",
             "size": "30",
             "optional": false,
-            "field": "data[Estado]",
+            "field": "data[estado]",
             "description": "<p>Campo para registro del estado del tarjetahabiente.</p>"
           },
           {
@@ -379,7 +675,7 @@
             "type": "String",
             "size": "50",
             "optional": false,
-            "field": "data[Pais]",
+            "field": "data[pais]",
             "description": "<p>Campo para registro del país del tarjetahabiente</p>"
           },
           {
@@ -445,20 +741,6 @@
             "optional": false,
             "field": "data[ip]",
             "description": "<p>Ip del servidor el cual envía la petición.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "user_key",
-            "description": "<p>Llave de sucursal del cliente</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "branch_key",
-            "description": "<p>Llave de sucursal del cliente</p>"
           }
         ]
       }
